@@ -1,0 +1,51 @@
+https://www.cnblogs.com/zero-zm/p/9932304.html
+
+第一步：创建第三方包;; (创建项目，项目下创建第三方库)
+1. 新建项目：ng new zerolibrary
+2. 创建第三方库：
+// 目录切换至新创建的项目
+cd zerolibrary
+// 创建第三方库 (--prefix: 前缀；在用命令行新建组件/指令时，selector的属性值的前缀)
+ng g library zero --prefix zm
+
+第二步：开发第三方包；；(在第三方库中新建组件、模块)
+1. 第三方库中新建button组件
+// 切换至第三方库创建组件的位置
+cd projects/zero/src/lib
+// 新建组件
+ng g c button
+2. 第三方库的模块中导出新建组件，可供外部模块使用
+// zero.module.ts
+exports: [ButtonComponent]
+
+第三步：测试第三方包；；；（本地测试第三方包中模块、组件是否可用）
+1. app.module.ts中导入第三方包的模块文件
+// 配置app.module.ts
+import { ZeroModule } from '../../projects/zero/src/lib/zero.module';//本地地调用测试
+
+imports: [ZeroModule]
+2. app.component.html中使用第三方包的ButtonComponent组件
+<zm-buttom></zm-button>
+
+第四步：发布第三方包；；；(npm测试无问题，发布)
+1. 构建npm包
+// 切换至第三方包根目录下
+cd projects/zero
+// 构建
+ng build zero
+2. 发布至npm官网
+跳转到 G:\码云仓库\zerolibrary\dist\zero
+// 需要登录(npm login)，有自己的npm账号
+注意镜像源（npm config get registry）如果是taobao的要改为npm官方，nrm use npm，然后登陆：qzl 通用密码
+npm publish
+可能需要先验证邮箱
+
+第五步：使用第三方包；；；(别的项目使用自己新建发布的NPM包)
+1. 项目中安装
+npm install zero@latest --save
+2. 在需要使用NPM包的模块中引入NPM包模块
+imports: [ZeroModule]
+3. 在组件中使用即可
+<zm-button></zm-buttom>
+
+
