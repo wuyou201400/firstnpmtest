@@ -1,11 +1,11 @@
 # 使用方法
 
 1. 项目中安装
-`npm install zero@latest --save`  或者 `npm install zero --save` 
+npm install zero@latest --save  或者 npm install zero --save 
 2. 在需要使用NPM包的模块中引入NPM包模块
-`imports: [ZeroModule]`
+imports: [ZeroModule]
 3. 在组件中使用即可
-`<zm-button></zm-buttom>`
+<zm-button></zm-buttom>
 
 
 # Zerolibrary
