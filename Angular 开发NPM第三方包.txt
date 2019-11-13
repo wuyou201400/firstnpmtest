@@ -1,3 +1,7 @@
+﻿如何发布angular模块到npm
+https://blog.csdn.net/u013475983/article/details/89358469
+
+
 https://www.cnblogs.com/zero-zm/p/9932304.html
 
 第一步：创建第三方包;; (创建项目，项目下创建第三方库)
@@ -33,8 +37,18 @@ imports: [ZeroModule]
 cd projects/zero
 // 构建
 ng build zero
+会在根目录生成dist/zero
 2. 发布至npm官网
-跳转到 G:\码云仓库\zerolibrary\dist\zero
+注册
+到 npmjs上注册一个账号， 注意需要邮箱验证。
+然后在终端输入
+npm adduser
+输入用户名，密码，邮箱即可登入成功
+这里注意，如果npm使用的是淘宝镜像，请切回npm。
+登陆成功后，输入
+npm whoami
+如果出现了你的用户名，说明你已经成功登陆了
+跳转到 G:\码云仓库\zerolibrary\dist\zero编译目录
 // 需要登录(npm login)，有自己的npm账号
 注意镜像源（npm config get registry）如果是taobao的要改为npm官方，nrm use npm，然后登陆：qzl 通用密码
 npm publish
@@ -42,7 +56,7 @@ npm publish
 
 第五步：使用第三方包；；；(别的项目使用自己新建发布的NPM包)
 1. 项目中安装
-npm install zero@latest --save
+npm install zero@latest --save  或者 npm install zero --save 
 2. 在需要使用NPM包的模块中引入NPM包模块
 imports: [ZeroModule]
 3. 在组件中使用即可
