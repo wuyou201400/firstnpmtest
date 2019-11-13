@@ -25,7 +25,7 @@ import { ZeroModule } from '../../projects/zero/src/lib/zero.module';//本地地
 
 imports: [ZeroModule]
 2. app.component.html中使用第三方包的ButtonComponent组件
-<zm-buttom></zm-button>
+<zm-button></zm-button>
 
 第四步：发布第三方包；；；(npm测试无问题，发布)
 1. 构建npm包
@@ -46,6 +46,6 @@ npm install zero@latest --save
 2. 在需要使用NPM包的模块中引入NPM包模块
 imports: [ZeroModule]
 3. 在组件中使用即可
-<zm-button></zm-buttom>
+<zm-button></zm-button>
 
 
