@@ -35,6 +35,7 @@ imports: [ZeroModule]
 1. 构建npm包
 // 切换至第三方包根目录下
 cd projects/zero
+注意修改package.json里的name和version信息："name": "@qzl/sidebar",  "version": "0.0.1",
 // 构建
 ng build zero
 会在根目录生成dist/zero
@@ -51,7 +52,7 @@ npm whoami
 跳转到 G:\码云仓库\zerolibrary\dist\zero编译目录
 // 需要登录(npm login)，有自己的npm账号
 注意镜像源（npm config get registry）如果是taobao的要改为npm官方，nrm use npm，然后登陆：qzl 通用密码
-npm publish
+npm publish --access public
 可能需要先验证邮箱
 
 第五步：使用第三方包；；；(别的项目使用自己新建发布的NPM包)
